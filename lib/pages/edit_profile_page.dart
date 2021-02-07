@@ -8,7 +8,13 @@ class EditProfilePage extends StatelessWidget {
         title: const Text('登録'),
       ),
       body: Center(
-        child: Image.asset('assets/images/user.png'),
+        child: ClipOval(
+          child: Image.asset(
+            'assets/images/user.png',
+            width: 150,
+            height: 150,
+          ),
+        ),
       ),
     );
   }
