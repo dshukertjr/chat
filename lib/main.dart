@@ -11,6 +11,18 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
+        appBarTheme: const AppBarTheme(
+          color: Colors.white,
+          textTheme: TextTheme(
+            headline6: TextStyle(
+              color: Colors.black,
+            ),
+          ),
+          elevation: 0,
+        ),
+        inputDecorationTheme: const InputDecorationTheme(
+          border: OutlineInputBorder(),
+        ),
         primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
