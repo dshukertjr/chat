@@ -23,10 +23,24 @@ class EditProfilePage extends StatelessWidget {
             ),
           ),
           const SizedBox(height: 46),
-          TextFormField(),
+          TextFormField(
+            decoration: const InputDecoration(
+              labelText: 'ユーザー名',
+            ),
+          ),
           const SizedBox(height: 46),
-          TextFormField(),
+          TextFormField(
+            decoration: const InputDecoration(
+              labelText: 'ユーザーID',
+            ),
+          ),
         ],
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+      floatingActionButton: FloatingActionButton.extended(
+        onPressed: () {},
+        icon: const Icon(Icons.save),
+        label: const Text('保存する'),
       ),
     );
   }
