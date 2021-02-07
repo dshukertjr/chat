@@ -7,6 +7,9 @@ class EditProfilePage extends StatelessWidget {
       appBar: AppBar(
         title: const Text('登録'),
       ),
+      body: Center(
+        child: Image.asset('assets/images/user.png'),
+      ),
     );
   }
 }
