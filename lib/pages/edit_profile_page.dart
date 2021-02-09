@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_feather_icons/flutter_feather_icons.dart';
 
 class EditProfilePage extends StatelessWidget {
   @override
@@ -39,7 +40,7 @@ class EditProfilePage extends StatelessWidget {
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       floatingActionButton: FloatingActionButton.extended(
         onPressed: () {},
-        icon: const Icon(Icons.save),
+        icon: const Icon(FeatherIcons.save),
         label: const Text('保存する'),
       ),
     );
