@@ -1,3 +1,4 @@
+import 'package:chat/pages/threads_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_feather_icons/flutter_feather_icons.dart';
 
@@ -73,6 +74,12 @@ class _EditProfilePageState extends State<EditProfilePage> {
           final name = _nameController.text;
           final userId = _userIdController.text;
           //TODO Firestoreに値を保存
+
+          Navigator.of(context).pushReplacement(
+            MaterialPageRoute(
+              builder: (context) => ThreadsPage(),
+            ),
+          );
         },
         icon: const Icon(FeatherIcons.save),
         label: const Text('保存する'),
