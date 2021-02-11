@@ -14,12 +14,49 @@ class ThreadsPage extends StatelessWidget {
             onPressed: () {
               Navigator.of(context).push(
                 MaterialPageRoute(
-                  builder: (context) => EditProfilePage(),
+                  builder: (_) => EditProfilePage(),
                 ),
               );
             },
           ),
         ],
+      ),
+      body: ListView.separated(
+        padding: const EdgeInsets.symmetric(
+          vertical: 20,
+          horizontal: 20,
+        ),
+        itemBuilder: (_, index) {
+          return Row(
+            children: [
+              ClipOval(
+                child: Image.asset(
+                  'assets/images/user.png',
+                  width: 70,
+                  height: 70,
+                ),
+              ),
+              const SizedBox(width: 12),
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text('Flutter太郎'),
+                    Text(
+                      'じゃあまた明日になったら連絡するね！じゃあまた明日になったら連絡するね！',
+                      maxLines: 1,
+                      overflow: TextOverflow.ellipsis,
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          );
+        },
+        separatorBuilder: (_, __) {
+          return const Divider();
+        },
+        itemCount: 1,
       ),
     );
   }
