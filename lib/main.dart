@@ -27,7 +27,7 @@ class MyApp extends StatelessWidget {
         inputDecorationTheme: const InputDecorationTheme(
           border: OutlineInputBorder(),
         ),
-        primarySwatch: Colors.blue,
+        primaryColor: const Color(0xFF0194F5),
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
       home: EditProfilePage(),
