@@ -1,6 +1,7 @@
-import 'package:chat/pages/edit_profile_page.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+
+import 'pages/splash_page.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -33,7 +34,7 @@ class MyApp extends StatelessWidget {
         primaryColor: const Color(0xFF0194F5),
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: EditProfilePage(),
+      home: SplashPage(),
     );
   }
 }
