@@ -81,7 +81,6 @@ class _EditProfilePageState extends State<EditProfilePage> {
           });
           final name = _nameController.text;
           final userId = _userIdController.text;
-          //TODO Firestoreに値を保存
           final user = FirebaseAuth.instance.currentUser;
           await FirebaseFirestore.instance
               .collection('users')
