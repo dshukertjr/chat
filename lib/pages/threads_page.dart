@@ -1,6 +1,7 @@
 import 'package:chat/models/thread.dart';
 import 'package:chat/pages/chat_page.dart';
 import 'package:chat/pages/edit_profile_page.dart';
+import 'package:chat/pages/id_search_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_feather_icons/flutter_feather_icons.dart';
 
@@ -41,6 +42,16 @@ class ThreadsPage extends StatelessWidget {
           return const Divider();
         },
         itemCount: 1,
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          Navigator.of(context).push(
+            MaterialPageRoute(
+              builder: (_) => IdSearchPage(),
+            ),
+          );
+        },
+        child: const Icon(FeatherIcons.search),
       ),
     );
   }
