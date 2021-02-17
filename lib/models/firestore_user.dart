@@ -12,4 +12,10 @@ class FirestoreUser {
     @required this.userId,
     this.profileImageUrl,
   });
+
+  FirestoreUser.fromMap(Map<String, dynamic> map)
+      : uid = map['uid'] as String,
+        name = map['name'] as String,
+        userId = map['userId'] as String,
+        profileImageUrl = map['profileImageUrl'] as String;
 }
