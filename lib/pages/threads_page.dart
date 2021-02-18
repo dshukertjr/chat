@@ -71,7 +71,7 @@ class _ThreadCell extends StatelessWidget {
       onTap: () {
         Navigator.of(context).push(
           MaterialPageRoute(
-            builder: (_) => ChatPage(),
+            builder: (_) => ChatPage(''),
           ),
         );
       },

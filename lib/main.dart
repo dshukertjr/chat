@@ -1,4 +1,5 @@
 import 'package:chat/pages/edit_profile_page.dart';
+import 'package:chat/pages/threads_page.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
@@ -36,7 +37,7 @@ class MyApp extends StatelessWidget {
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
       // home: SplashPage(),
-      home: EditProfilePage(),
+      home: ThreadsPage(),
     );
   }
 }

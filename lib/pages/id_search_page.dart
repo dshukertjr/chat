@@ -1,7 +1,10 @@
 import 'package:chat/models/firestore_user.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_feather_icons/flutter_feather_icons.dart';
+
+import 'chat_page.dart';
 
 class IdSearchPage extends StatefulWidget {
   @override
@@ -23,22 +26,50 @@ class _IdSearchPageState extends State<IdSearchPage> {
       body: _loading
           ? const Center(child: CircularProgressIndicator())
           : ListView(
+              padding: const EdgeInsets.symmetric(vertical: 44),
               children: [
-                TextFormField(
-                  onEditingComplete: _search,
-                  textInputAction: TextInputAction.search,
-                  controller: _searchQueryController,
-                  decoration: InputDecoration(
-                    labelText: 'ユーザーIDで検索',
-                    suffixIcon: IconButton(
-                      icon: const Icon(FeatherIcons.search),
-                      onPressed: _search,
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 60),
+                  child: TextFormField(
+                    onEditingComplete: _search,
+                    textInputAction: TextInputAction.search,
+                    controller: _searchQueryController,
+                    decoration: InputDecoration(
+                      labelText: 'ユーザーIDで検索',
+                      suffixIcon: IconButton(
+                        icon: const Icon(FeatherIcons.search),
+                        onPressed: _search,
+                      ),
                     ),
                   ),
                 ),
                 ..._searchResults(),
               ],
             ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+      floatingActionButton: FloatingActionButton.extended(
+        onPressed: _searchedUser == null
+            ? null
+            : () async {
+                final uid = FirebaseAuth.instance.currentUser.uid;
+                final uidList = [uid, _searchedUser.uid];
+                uidList.sort();
+                final threadId = uidList.join();
+                await FirebaseFirestore.instance
+                    .collection('threads')
+                    .doc(threadId)
+                    .set({
+                  'uids': FieldValue.arrayUnion(uidList),
+                }, SetOptions(merge: true));
+                Navigator.of(context).pushReplacement(
+                  MaterialPageRoute(
+                    builder: (_) => ChatPage(threadId),
+                  ),
+                );
+              },
+        icon: const Icon(FeatherIcons.messageCircle),
+        label: const Text('メッセージを送る'),
+      ),
     );
   }
 

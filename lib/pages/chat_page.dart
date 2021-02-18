@@ -1,6 +1,13 @@
 import 'package:flutter/material.dart';
 
 class ChatPage extends StatelessWidget {
+  final String threadId;
+
+  const ChatPage(
+    this.threadId, {
+    Key key,
+  }) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
