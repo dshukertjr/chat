@@ -18,4 +18,13 @@ class FirestoreUser {
         name = map['name'] as String,
         userId = map['userId'] as String,
         profileImageUrl = map['profileImageUrl'] as String;
+
+  Map<String, dynamic> toMap({bool isForChat}) {
+    return {
+      'uid': uid,
+      'name': name,
+      if (!isForChat != true) 'userId': userId,
+      'profileImageUrl': profileImageUrl,
+    };
+  }
 }
